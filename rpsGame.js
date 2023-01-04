@@ -53,4 +53,6 @@ function decide(computerChoice, playerChoice) {
   }
 }
 
-console.log(decide(getComputerChoice(), getPlayersChoice()));
+for (let i = 0; i < 10; i++) {
+  console.log(decide(getComputerChoice(), getPlayersChoice()));
+}
