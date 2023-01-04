@@ -5,7 +5,7 @@ function getComputerChoice() {
     
     const randomChoice = Math.floor(Math.random() * 3)
 
-    return choices[randomChoice]
+    return choices.map(choice => choice.name)[randomChoice]
 }
 
 function getPlayersChoice() {
@@ -33,4 +33,4 @@ function decide(computerChoice, playerChoice) {
 
 //console.log(decide(getComputerChoice(), getPlayersChoice()))
 
-console.log(getPlayersChoice())
+console.log(getComputerChoice())
