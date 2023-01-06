@@ -47,9 +47,12 @@ function decide(computerChoice, playerChoice) {
   });
 
   if (winner === "") {
-    return `Tie! You both chose ${playerChoice}`;
+    return { winner: null, message: `Tie! You both chose ${playerChoice}` };
   } else {
-    return `${winner} Wins! ${winnerToken} beats ${loserToken}`;
+    return {
+      winner: winner,
+      message: `${winner} Wins! ${winnerToken} beats ${loserToken}`,
+    };
   }
 }
 
