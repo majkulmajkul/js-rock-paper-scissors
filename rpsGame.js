@@ -56,3 +56,9 @@ function decide(computerChoice, playerChoice) {
 for (let i = 0; i < 10; i++) {
   console.log(decide(getComputerChoice(), getPlayersChoice()));
 }
+
+//Start game:
+// Display score
+// Display options - R P S -> update getPlayerChoice function
+// X rounds: get choice, update scores
+// End Game
