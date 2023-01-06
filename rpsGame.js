@@ -76,6 +76,7 @@ const computerScoreElement = document.querySelector("#computer-score");
 const rockButton = document.querySelector("#rock-button");
 const paperButton = document.querySelector("#paper-button");
 const scissorsButton = document.querySelector("#scissors-button");
+const gameHistoryDiv = document.querySelector("#game-history");
 
 startButton.addEventListener("click", startGame);
 rockButton.addEventListener("click", () => oneRound("rock"));
@@ -107,8 +108,20 @@ function updateScore(winner) {
   }
 }
 
+function updateGameHistory(round, text) {
+  const historyLogItemWrapper = document.createElement("p");
+  historyLogItemWrapper.className = "history-log-item";
+  const historyLogItem = document.createElement("small");
+
+  historyLogItem.textContent = `Round ${round}: ${text}`;
+  historyLogItemWrapper.appendChild(historyLogItem);
+  gameHistoryDiv.appendChild(historyLogItemWrapper);
+}
+
 function oneRound(playerChoice) {
   const result = decide(getComputerChoice(), playerChoice);
   console.log(result);
   updateScore(result.winner);
+  updateGameHistory(round, result.message);
+  round++;
 }

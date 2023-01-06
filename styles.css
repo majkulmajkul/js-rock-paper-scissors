@@ -30,3 +30,7 @@
 .game-container{
     visibility: hidden;
 }
+
+.history-log-item{
+    margin: 0;
+}
