@@ -34,3 +34,14 @@
 .history-log-item{
     margin: 0;
 }
+
+#tie-break{
+    color: red;
+    visibility: hidden;
+    
+}
+
+.round-container{
+    display: flex;
+    justify-content: space-between;
+}

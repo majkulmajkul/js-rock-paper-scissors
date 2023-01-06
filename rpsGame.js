@@ -66,8 +66,7 @@ function decide(computerChoice, playerChoice) {
 // X rounds: get choice, update scores
 // End Game
 
-let gameOn = false;
-let round = 1;
+let round;
 
 const startButton = document.querySelector("#start-button");
 const gameContainer = document.querySelector(".game-container");
@@ -77,6 +76,10 @@ const rockButton = document.querySelector("#rock-button");
 const paperButton = document.querySelector("#paper-button");
 const scissorsButton = document.querySelector("#scissors-button");
 const gameHistoryDiv = document.querySelector("#game-history");
+const roundNumberSpan = document.querySelector("#round-number");
+const tieBreakSpan = document.querySelector("#tie-break");
+const buttonContainerDiv = document.querySelector(".buttons-container");
+const roundContainerDiv = document.querySelector(".round-container");
 
 startButton.addEventListener("click", startGame);
 rockButton.addEventListener("click", () => oneRound("rock"));
@@ -94,8 +97,35 @@ function startGame() {
   startButton.style.visibility = "hidden";
   playerScoreElement.textContent = playerScore;
   computerScoreElement.textContent = computerScore;
-  gameOn = true;
   round = 1;
+  updateRoundNumber();
+  gameOn = true;
+}
+
+function setGameWon() {
+  buttonContainerDiv.style.visibility = "hidden";
+  startButton.style.visibility = "visible";
+  roundContainerDiv.style.visibility = "hidden";
+}
+
+function setTieBreak() {
+  tieBreakSpan.style.visibility = "visible";
+}
+
+function checkIfGameIsWon() {
+  if (round >= 10) {
+    if (playerScore === computerScore) {
+      setTieBreak();
+    } else if (playerScore > computerScore) {
+      console.log("Player Won!");
+    } else {
+      console.log("Computer Won!");
+    }
+  }
+}
+
+function updateRoundNumber() {
+  roundNumberSpan.textContent = round;
 }
 
 function updateScore(winner) {
@@ -119,9 +149,26 @@ function updateGameHistory(round, text) {
 }
 
 function oneRound(playerChoice) {
-  const result = decide(getComputerChoice(), playerChoice);
+  const computerChoice = getComputerChoice();
+  const result = decide(computerChoice, playerChoice);
   console.log(result);
   updateScore(result.winner);
   updateGameHistory(round, result.message);
+
+  if (round >= 10) {
+    if (playerScore === computerScore) {
+      setTieBreak();
+    } else {
+      setGameWon();
+
+      if (playerScore > computerScore) {
+        console.log("Player Won!");
+      } else {
+        console.log("Computer Won!");
+      }
+    }
+  }
+
   round++;
+  updateRoundNumber();
 }
