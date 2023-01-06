@@ -48,6 +48,8 @@ function decide(computerChoice, playerChoice) {
 }
 
 let round;
+let playerScore;
+let computerScore;
 
 const startButton = document.querySelector("#start-button");
 const gameContainer = document.querySelector(".game-container");
@@ -67,9 +69,6 @@ rockButton.addEventListener("click", () => oneRound("rock"));
 paperButton.addEventListener("click", () => oneRound("paper"));
 scissorsButton.addEventListener("click", () => oneRound("scissors"));
 
-let playerScore;
-let computerScore;
-
 function startGame() {
   playerScore = 0;
   computerScore = 0;
@@ -81,7 +80,6 @@ function startGame() {
   computerScoreElement.textContent = computerScore;
   round = 1;
   updateRoundNumber();
-  gameOn = true;
   gameHistoryDiv.innerHTML = "";
   tieBreakSpan.style.visibility = "hidden";
   roundContainerDiv.style.visibility = "visible";
@@ -91,6 +89,11 @@ function setGameWon() {
   buttonContainerDiv.style.visibility = "hidden";
   startButton.style.visibility = "visible";
   roundContainerDiv.style.visibility = "hidden";
+  if (playerScore > computerScore) {
+    console.log("Player Won!");
+  } else {
+    console.log("Computer Won!");
+  }
 }
 
 function setTieBreak() {
@@ -145,12 +148,6 @@ function oneRound(playerChoice) {
       setTieBreak();
     } else {
       setGameWon();
-
-      if (playerScore > computerScore) {
-        console.log("Player Won!");
-      } else {
-        console.log("Computer Won!");
-      }
     }
   }
 
