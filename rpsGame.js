@@ -53,12 +53,29 @@ function decide(computerChoice, playerChoice) {
   }
 }
 
-for (let i = 0; i < 10; i++) {
-  console.log(decide(getComputerChoice(), getPlayersChoice()));
-}
+//for (let i = 0; i < 10; i++) {
+//  console.log(decide(getComputerChoice(), getPlayersChoice()));
+// }
 
 //Start game:
 // Display score
 // Display options - R P S -> update getPlayerChoice function
 // X rounds: get choice, update scores
 // End Game
+
+const startButton = document.querySelector("#start-button");
+const gameContainer = document.querySelector(".game-container");
+const playerScoreElement = document.querySelector("#player-score");
+const computerScoreElement = document.querySelector("#computer-score");
+
+startButton.addEventListener("click", startGame);
+
+function startGame() {
+  let playerScore = 0;
+  let computerScore = 0;
+
+  gameContainer.style.visibility = "visible";
+  startButton.style.visibility = "hidden";
+  playerScoreElement.textContent = playerScore;
+  computerScoreElement.textContent = computerScore;
+}

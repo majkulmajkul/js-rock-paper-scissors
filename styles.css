@@ -26,3 +26,7 @@
     justify-content: space-between;
     min-width: 400px;
 }
+
+.game-container{
+    visibility: hidden;
+}
