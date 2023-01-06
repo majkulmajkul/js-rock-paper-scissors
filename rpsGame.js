@@ -63,12 +63,21 @@ function decide(computerChoice, playerChoice) {
 // X rounds: get choice, update scores
 // End Game
 
+let gameOn = false;
+let round = 1;
+
 const startButton = document.querySelector("#start-button");
 const gameContainer = document.querySelector(".game-container");
 const playerScoreElement = document.querySelector("#player-score");
 const computerScoreElement = document.querySelector("#computer-score");
+const rockButton = document.querySelector("#rock-button");
+const paperButton = document.querySelector("#paper-button");
+const scissorsButton = document.querySelector("#scissors-button");
 
 startButton.addEventListener("click", startGame);
+rockButton.addEventListener("click", () => oneRound("rock"));
+paperButton.addEventListener("click", () => oneRound("paper"));
+scissorsButton.addEventListener("click", () => oneRound("scissors"));
 
 function startGame() {
   let playerScore = 0;
@@ -78,4 +87,10 @@ function startGame() {
   startButton.style.visibility = "hidden";
   playerScoreElement.textContent = playerScore;
   computerScoreElement.textContent = computerScore;
+  gameOn = true;
+  round = 1;
+}
+
+function oneRound(playerChoice) {
+  console.log(decide(getComputerChoice(), playerChoice));
 }
