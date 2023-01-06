@@ -10,15 +10,6 @@ function getComputerChoice() {
   return choices.map((choice) => choice.name)[randomChoice];
 }
 
-function getPlayersChoice() {
-  let choice = "";
-  while (!choices.map((choice) => choice.name).includes(choice)) {
-    choice = prompt("Rock, Paper or Scissors?").toLowerCase();
-  }
-
-  return choice;
-}
-
 function decide(computerChoice, playerChoice) {
   let winner = "";
   let winnerToken = "";
@@ -55,16 +46,6 @@ function decide(computerChoice, playerChoice) {
     };
   }
 }
-
-//for (let i = 0; i < 10; i++) {
-//  console.log(decide(getComputerChoice(), getPlayersChoice()));
-// }
-
-//Start game:
-// Display score
-// Display options - R P S -> update getPlayerChoice function
-// X rounds: get choice, update scores
-// End Game
 
 let round;
 
