@@ -82,9 +82,12 @@ rockButton.addEventListener("click", () => oneRound("rock"));
 paperButton.addEventListener("click", () => oneRound("paper"));
 scissorsButton.addEventListener("click", () => oneRound("scissors"));
 
+let playerScore;
+let computerScore;
+
 function startGame() {
-  let playerScore = 0;
-  let computerScore = 0;
+  playerScore = 0;
+  computerScore = 0;
 
   gameContainer.style.visibility = "visible";
   startButton.style.visibility = "hidden";
@@ -94,6 +97,18 @@ function startGame() {
   round = 1;
 }
 
+function updateScore(winner) {
+  if (winner === "Player") {
+    playerScore++;
+    playerScoreElement.textContent = playerScore;
+  } else if (winner === "Computer") {
+    computerScore++;
+    computerScoreElement.textContent = computerScore;
+  }
+}
+
 function oneRound(playerChoice) {
-  console.log(decide(getComputerChoice(), playerChoice));
+  const result = decide(getComputerChoice(), playerChoice);
+  console.log(result);
+  updateScore(result.winner);
 }
