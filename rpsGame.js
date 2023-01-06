@@ -93,6 +93,7 @@ function startGame() {
   playerScore = 0;
   computerScore = 0;
 
+  buttonContainerDiv.style.visibility = "visible";
   gameContainer.style.visibility = "visible";
   startButton.style.visibility = "hidden";
   playerScoreElement.textContent = playerScore;
@@ -100,6 +101,9 @@ function startGame() {
   round = 1;
   updateRoundNumber();
   gameOn = true;
+  gameHistoryDiv.innerHTML = "";
+  tieBreakSpan.style.visibility = "hidden";
+  roundContainerDiv.style.visibility = "visible";
 }
 
 function setGameWon() {
