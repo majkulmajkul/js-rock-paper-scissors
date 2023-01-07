@@ -68,6 +68,8 @@ const roundNumberSpan = document.querySelector("#round-number");
 const tieBreakSpan = document.querySelector("#tie-break");
 const buttonContainerDiv = document.querySelector(".buttons-container");
 const roundContainerDiv = document.querySelector(".round-container");
+const winnerH2 = document.querySelector("#winner-line");
+const winnerNameSpan = document.querySelector("#winner-name");
 
 startButton.addEventListener("click", startGame);
 rockButton.addEventListener("click", () => oneRound("rock"));
@@ -93,6 +95,13 @@ function startGame() {
   gameHistoryDiv.innerHTML = "";
   tieBreakSpan.style.visibility = "hidden";
   roundContainerDiv.style.visibility = "visible";
+  winnerNameSpan.textContent = "";
+  winnerH2.style.visibility = "hidden";
+}
+
+function announceWinnerOnPage(winner) {
+  winnerNameSpan.textContent = winner;
+  winnerH2.style.visibility = "visible";
 }
 
 function setGameWon() {
@@ -100,9 +109,9 @@ function setGameWon() {
   startButton.style.visibility = "visible";
   roundContainerDiv.style.visibility = "hidden";
   if (playerScore > computerScore) {
-    console.log("Player Won!");
+    announceWinnerOnPage("Player");
   } else {
-    console.log("Computer Won!");
+    announceWinnerOnPage("Computer");
   }
 }
 

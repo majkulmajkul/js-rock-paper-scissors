@@ -45,3 +45,7 @@
     display: flex;
     justify-content: space-between;
 }
+
+#winner-line{
+    visibility: hidden;
+}
