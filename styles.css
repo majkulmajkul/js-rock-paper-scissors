@@ -1,3 +1,20 @@
+body{
+    font-family: 'Roboto', sans-serif;
+    background-color: #e9d8a6;
+}
+
+button{
+    font-family: 'Roboto', sans-serif;
+    background-color: #005f73;
+    padding: 1rem 2rem;
+    border: none;
+    color: #ee9b00;
+    font-weight: 700;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+    padding: 1rem;
+}
+
 .container{
     display: flex;
     flex-direction: column;
@@ -8,6 +25,10 @@
     display: flex;
     justify-content: space-between;
     min-width: 400px;
+    background-color: #ee9b00;
+    color: #001219;
+    border-radius: 1rem;
+    padding: 2rem;
     
 }
 
@@ -18,7 +39,9 @@
 }
 
 .score-count{
-    font-size: 4rem;;
+    font-size: 4rem;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .buttons-container{
@@ -49,3 +72,23 @@
 #winner-line{
     visibility: hidden;
 }
+
+#game-history{
+    background-color: #ee9b00;
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+#start-button{
+    margin-bottom: 1rem;
+}
+
+#tie-break{
+    color: #bb3e03;
+    font-weight: 700;
+}
+
+#winner-name{
+    color: #9b2226;
+}
+
