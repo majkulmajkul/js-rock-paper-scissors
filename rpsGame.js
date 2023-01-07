@@ -38,11 +38,16 @@ function decide(computerChoice, playerChoice) {
   });
 
   if (winner === "") {
-    return { winner: null, message: `Tie! You both chose ${playerChoice}` };
+    return {
+      winner: null,
+      message: `Tie! You both chose ${capitalize(playerChoice)}`,
+    };
   } else {
     return {
       winner: winner,
-      message: `${winner} Wins! ${winnerToken} beats ${loserToken}`,
+      message: `${winner} Wins! ${capitalize(winnerToken)} beats ${capitalize(
+        loserToken
+      )}`,
     };
   }
 }
@@ -68,6 +73,11 @@ startButton.addEventListener("click", startGame);
 rockButton.addEventListener("click", () => oneRound("rock"));
 paperButton.addEventListener("click", () => oneRound("paper"));
 scissorsButton.addEventListener("click", () => oneRound("scissors"));
+
+function capitalize(word) {
+  const lower = word.toLowerCase();
+  return word.charAt(0).toUpperCase() + lower.slice(1);
+}
 
 function startGame() {
   playerScore = 0;
